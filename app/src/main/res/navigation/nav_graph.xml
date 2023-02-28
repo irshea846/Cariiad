@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/UniversityListFragment">
+
+    <fragment
+        android:id="@+id/UniversityListFragment"
+        android:name="com.rshea.cariiad.ui.UniversityListFragment"
+        android:label="@string/university_list_fragment_label"
+        tools:layout="@layout/fragment_university_list">
+
+        <action
+            android:id="@+id/action_UniversityListFragment_to_UniversityDetailFragment"
+            app:destination="@id/UniversityDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/UniversityDetailFragment"
+        android:name="com.rshea.cariiad.ui.UniversityDetailFragment"
+        android:label="@string/university_detail_fragment_label"
+        tools:layout="@layout/fragment_university_detail">
+
+        <action
+            android:id="@+id/action_UniversityDetailFragment_to_UniversityListFragment"
+            app:destination="@id/UniversityListFragment" />
+    </fragment>
+</navigation>
