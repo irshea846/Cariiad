@@ -37,13 +37,18 @@ class UniversityListFragment : Fragment() {
         )[UniversityViewModel::class.java]
     }
 
+    private var rootView: View? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
         _binding = FragmentUniversityListBinding.inflate(inflater, container, false)
-        return binding.root
+        if (rootView == null) {
+            rootView = binding.root
+            return binding.root
+        }
+        return rootView as View
 
     }
 
