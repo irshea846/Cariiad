@@ -1,12 +1,10 @@
 package com.rshea.cariiad.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
-import com.rshea.cariiad.R
+import androidx.fragment.app.Fragment
 import com.rshea.cariiad.databinding.FragmentUniversityDetailBinding
 
 /**
@@ -19,11 +17,14 @@ class UniversityDetailFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+    private var name: String? = null
+    private var country: String? = null
+    private var url: String? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         _binding = FragmentUniversityDetailBinding.inflate(inflater, container, false)
         return binding.root
@@ -32,9 +33,17 @@ class UniversityDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_UniversityDetailFragment_to_UniversityListFragment)
+        name = arguments?.getString("name")
+        name?.let {
+            binding.universityName.text = name
+        }
+        country = arguments?.getString("country")
+        country?.let {
+            binding.universityCountry.text = country
+        }
+        url = arguments?.getString("domain")
+        url?.let {
+            binding.universityWebpage.text = url
         }
     }
 
@@ -42,4 +51,5 @@ class UniversityDetailFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-}
+
+ }

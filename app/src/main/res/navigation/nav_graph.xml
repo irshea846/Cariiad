@@ -20,6 +20,15 @@
         android:name="com.rshea.cariiad.ui.UniversityDetailFragment"
         android:label="@string/university_detail_fragment_label"
         tools:layout="@layout/fragment_university_detail">
+        <argument
+            android:name="universityName"
+            app:nullable="false" />
+        <argument
+            android:name="universityCountry"
+            app:nullable="false" />
+        <argument
+            android:name="universityDomain"
+            app:nullable="false" />
 
         <action
             android:id="@+id/action_UniversityDetailFragment_to_UniversityListFragment"

@@ -1,28 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.UniversityDetailFragment">
 
     <TextView
-        android:id="@+id/textview_second"
+        android:id="@+id/university_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/button_second"
+        app:layout_constraintBottom_toTopOf="@id/university_country"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="parent"
+        android:textSize="20sp"
+        android:textColor="@color/purple_500"
+        android:gravity="center_horizontal"
+        android:maxLines="2"
+        tools:text="American InterContinental University-London"/>
 
-    <Button
-        android:id="@+id/button_second"
+    <TextView
+        android:id="@+id/university_country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/previous"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toTopOf="@id/university_webpage"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textview_second"
-        android:visibility="gone"/>
+        app:layout_constraintTop_toBottomOf="@id/university_name"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/teal_700"
+        tools:text="United Kingdom"/>
+
+    <TextView
+        android:id="@+id/university_webpage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/university_country"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        android:textColor="@color/teal_200"
+        tools:text="uni-aberttay-dundee.co.uk"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

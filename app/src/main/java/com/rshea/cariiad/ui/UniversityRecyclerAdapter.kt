@@ -1,5 +1,6 @@
 package com.rshea.cariiad.ui
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,7 +31,14 @@ class UniversityRecyclerAdapter(
                     currentHolderView?.setBackgroundResource(R.color.background_grey)
                     currentHolderView = holder.itemView
                     holder.itemView.setBackgroundResource(R.color.purple_200)
-                    findNavController(holder.itemView).navigate(R.id.action_UniversityListFragment_to_UniversityDetailFragment)
+                    val bundle = Bundle()
+                    bundle.putString("name", item.name)
+                    bundle.putString("country", item.country)
+                    bundle.putString("domain", item.webPagesList[0])
+                    findNavController(holder.itemView).navigate(
+                        R.id.action_UniversityListFragment_to_UniversityDetailFragment,
+                        bundle
+                    )
                 }
             }
         }
