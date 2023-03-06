@@ -22,6 +22,10 @@ class NetworkMapper :
             )
         }
 
+        override fun mapToEntity(id: Int, domainModel: University): UniversityNetworkEntity {
+            TODO("Not yet implemented")
+        }
+
         fun mapFromEntityList(entities: List<UniversityNetworkEntity>): List<University>{
             return entities.map { mapFromEntity(it) }
         }

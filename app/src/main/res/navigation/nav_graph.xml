@@ -21,13 +21,7 @@
         android:label="@string/university_detail_fragment_label"
         tools:layout="@layout/fragment_university_detail">
         <argument
-            android:name="universityName"
-            app:nullable="false" />
-        <argument
-            android:name="universityCountry"
-            app:nullable="false" />
-        <argument
-            android:name="universityDomain"
+            android:name="universityPosition"
             app:nullable="false" />
 
         <action

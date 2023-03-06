@@ -27,8 +27,8 @@ class UniversityRepository
             try {
                 val networkUniversities = universityRetrofit.get()
                 var universities = networkMapper.mapFromEntityList(networkUniversities)
-                for (university in universities) {
-                    universityDao.insert(cacheMapper.mapToEntity(university))
+                for (index in universities.indices) {
+                    universityDao.insert(cacheMapper.mapToEntity(index, universities[index]))
                 }
                 val cachedUniversities = universityDao.get()
                 universities = cacheMapper.mapFromEntityList(cachedUniversities)
@@ -42,4 +42,15 @@ class UniversityRepository
                 }
             }
         }
+
+    suspend fun fetchUniversityInfo(id: Int): Flow<DataState<University>> = flow {
+        emit(DataState.Loading)
+        try {
+            val cachedUniversity = universityDao.get(id)
+            val university = cacheMapper.mapFromEntity(cachedUniversity)
+            emit(DataState.Success(university))
+        } catch (e: Exception) {
+            emit(DataState.Error(e))
+        }
+    }
 }

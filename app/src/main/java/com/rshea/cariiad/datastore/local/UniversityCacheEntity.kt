@@ -7,7 +7,10 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "uni_data_table")
 data class UniversityCacheEntity(
 
-    @PrimaryKey(autoGenerate = false)
+    @PrimaryKey
+    @ColumnInfo(name = "id")
+    var id: Int,
+
     @ColumnInfo(name = "uni_name")
     var name: String,
 

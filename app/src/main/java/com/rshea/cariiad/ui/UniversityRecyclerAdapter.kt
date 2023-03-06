@@ -32,9 +32,7 @@ class UniversityRecyclerAdapter(
                     currentHolderView = holder.itemView
                     holder.itemView.setBackgroundResource(R.color.purple_200)
                     val bundle = Bundle()
-                    bundle.putString("name", item.name)
-                    bundle.putString("country", item.country)
-                    bundle.putString("domain", item.webPagesList[0])
+                    bundle.putInt("position", position)
                     findNavController(holder.itemView).navigate(
                         R.id.action_UniversityListFragment_to_UniversityDetailFragment,
                         bundle

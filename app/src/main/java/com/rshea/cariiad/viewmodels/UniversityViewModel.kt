@@ -55,7 +55,19 @@ class UniversityViewModel (
         }
     }
 
+    private val _uiOneState: MutableLiveData<DataState<University>> = MutableLiveData()
+    val uiOneState: LiveData<DataState<University>>
+        get() = _uiOneState
 
+    fun fetchUniversityInfo(id: Int) {
+        fetchJob?.cancel()
+        fetchJob = viewModelScope.launch {
+            universityRepository.fetchUniversityInfo(id)
+                .onEach { uiOneState -> _uiOneState.value = uiOneState }
+                .launchIn(viewModelScope)
+        }
+
+    }
     /**
      * Factory for constructing UniViewModel with parameter
      */
